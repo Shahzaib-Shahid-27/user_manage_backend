@@ -1,6 +1,6 @@
 
 import bcrypt from "bcryptjs";
-import { db } from "../src/prisma/db";
+import { db } from "../src/prisma/db.ts";
 import { Request, Response } from "express";
 
 export const register_user = async (

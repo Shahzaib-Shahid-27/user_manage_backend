@@ -3,8 +3,8 @@ import express, { Request, Response } from "express";
 
 import cors from "cors";
 
-import { db } from "./prisma/db";
-import my_router from "../routes/user.routes";
+import { db } from "./prisma/db.ts";
+import my_router from "../routes/user.routes.ts";
 
 const app = express();
 
@@ -13,7 +13,13 @@ const port = Number(process.env.PORT) || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+
+
+app.use(cors({
+origin: process.env.FRONTEND_URL,
+credentials: true,
+methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+}));
 
 
 // router
