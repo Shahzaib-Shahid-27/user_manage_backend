@@ -2,39 +2,45 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.ts",
+  "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx watch src/server.ts",
-    "contract:emit": "prisma contract emit"
+    "dev":"tsx watch server.ts",
+    "build": "tsc",
+    "start": "tsx server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
-  "devDependencies": {
-    "@prisma/cli-engine": "^0.2.3",
-    "@types/cors": "^2.8.19",
-    "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^26.4.0",
-    "prisma": "^8.0.0-rc.10",
-    "tsx": "^4.23.13",
-    "typescript": "^7.0.2"
-  },
   "dependencies": {
-    "@prisma/orm-postgres": "^8.0.0-rc.8",
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.9.1",
     "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3"
+    "i": "^0.3.7",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.2.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.2.0",
+    "@types/pg": "^8.23.1",
+    "prisma": "^7.9.1",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
   },
   "allowScripts": {
-    "esbuild@0.28.2": true,
-    "msgpackr-extract@3.0.4": true,
-    "workerd@1.20260704.1": true
+    "prisma@7.9.1": true,
+    "@prisma/engines@7.9.1": true,
+    "tsx@4.23.12": true,
+    "esbuild@0.28.2": true
   }
 }
-
-

@@ -6,7 +6,7 @@ import cors from "cors";
 import { db } from "./prisma/db.ts";
 import my_router from "../routes/user.routes.ts";
 
-const app = express();
+const app = express();  
 
 const port = Number(process.env.PORT) || 3000;
 

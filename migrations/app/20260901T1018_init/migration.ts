@@ -1,5 +1,5 @@
 #!/usr/bin/env -S node
-import type { Contract as End } from '../../snapshots/63c6bfe8b4f347b72adf68d0a5d8914b461b6f76e52f5c121c870850d58e5eca/contract';
+import type { Contract as End } from '../../snapshots/63c6bfe8b4f347b72adf68d0a5d8914b461b6f76e52f5c121c870850d58e5eca/contract.js';
 import endContract from '../../snapshots/63c6bfe8b4f347b72adf68d0a5d8914b461b6f76e52f5c121c870850d58e5eca/contract.json' with { type: 'json' };
 import { Migration, MigrationCLI, col, primaryKey } from '@prisma/orm-postgres/migration';
 

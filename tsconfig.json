@@ -11,6 +11,6 @@
     "noEmit":true,
     "allowImportingTsExtensions":true
   },
-  "include": ["**/*.ts", "controllers/user.controller.ts"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
