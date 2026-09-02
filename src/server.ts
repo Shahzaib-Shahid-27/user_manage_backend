@@ -12,12 +12,7 @@ const port = Number(process.env.PORT) || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-app.use(cors({
-origin: process.env.FRONTEND_URL,
-credentials: true,
-methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-}));
+app.use(cors());
 
 
 // router
