@@ -7,30 +7,21 @@ import { db } from "./prisma/db.ts";
 import my_router from "../routes/user.routes.ts";
 
 const app = express();  
-
 const port = Number(process.env.PORT) || 3000;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-
-app.use(cors({
-origin: process.env.FRONTEND_URL,
-credentials: true,
-methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-}));
+app.use(cors());
 
 
 // router
 app.use( "/user" , my_router) ;
 
 
-
 app.get("/", (req: Request, res: Response) => {
-    res.send("Backend is running on this server!");
+    res.send("Backend is running!");
 });
-
 
 const startserver = async () => {
 
@@ -43,7 +34,7 @@ const startserver = async () => {
         });
         
     } catch (error) {
-        console.error("Database connection failed:", error);
+        console.error("Database connection failed:", error);        
     }
 }
 
