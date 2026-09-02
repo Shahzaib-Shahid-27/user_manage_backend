@@ -92,7 +92,6 @@ export const get_users = async (req: Request, res: Response) => {
     return res.status(200).json({
       message: "Users fetched successfully!",
       data: usersWithoutPassword,
-
     });
 
   } catch (error) {
