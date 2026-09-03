@@ -1,6 +1,6 @@
 #!/usr/bin/env -S node
-import type { Contract as End } from '../../snapshots/63c6bfe8b4f347b72adf68d0a5d8914b461b6f76e52f5c121c870850d58e5eca/contract.js';
-import endContract from '../../snapshots/63c6bfe8b4f347b72adf68d0a5d8914b461b6f76e52f5c121c870850d58e5eca/contract.json' with { type: 'json' };
+import type { Contract as End } from '../../snapshots/cd882d9875ed27050781d8c5d799a0ef71b42e98ccd737cbb120677044157e26/contract';
+import endContract from '../../snapshots/cd882d9875ed27050781d8c5d799a0ef71b42e98ccd737cbb120677044157e26/contract.json' with { type: 'json' };
 import { Migration, MigrationCLI, col, primaryKey } from '@prisma/orm-postgres/migration';
 
 export default class M extends Migration<never, End> {
@@ -13,10 +13,12 @@ export default class M extends Migration<never, End> {
         schema: 'public',
         table: 'user',
         columns: [
+          col('address', 'text', { notNull: true, codecRef: { codecId: 'pg/text@1' } }),
           col('email', 'text', { notNull: true, codecRef: { codecId: 'pg/text@1' } }),
           col('id', 'SERIAL', { notNull: true, codecRef: { codecId: 'pg/int4@1' } }),
           col('name', 'text', { notNull: true, codecRef: { codecId: 'pg/text@1' } }),
           col('password', 'text', { notNull: true, codecRef: { codecId: 'pg/text@1' } }),
+          col('phone', 'int4', { notNull: true, codecRef: { codecId: 'pg/int4@1' } }),
         ],
         constraints: [primaryKey(['id'])],
       }),

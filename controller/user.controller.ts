@@ -10,12 +10,12 @@ import type { Request, Response } from "express";
 // REGISTER USER
 export const register_user = async (req: Request, res: Response) => {
 
-  const { name, email, password } = req.body;
+  const { name, email, password, phone, address } = req.body;
 
   try {
 
     // Validate field
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !phone || !address) {
       return res.status(400).json({
         message: "Fields are missing!",
       });
@@ -43,14 +43,18 @@ export const register_user = async (req: Request, res: Response) => {
       name,
       email,
       password: hash_pass,
-
+      phone,
+      address,
     });
 
     // Create JWT token
     const token = jwt.sign(
       {
         id: createuser.id,
+        name: createuser.name,
         email: createuser.email,
+        phone:createuser.phone,
+        address:createuser.address,        
       },
       process.env.JWT_SECRET!,
 
@@ -86,9 +90,16 @@ export const get_users = async (req: Request, res: Response) => {
       id: user.id,
       name: user.name,
       email: user.email,
-
+      phone:user.phone,
+      address:user.address,
     }));
 
+    if (usersWithoutPassword.length === 0) {
+      return res.status(200).json({
+        message: "No User Exists!",
+        data: [],
+      });
+    }
 
     return res.status(200).json({
       message: "Users fetched successfully!",

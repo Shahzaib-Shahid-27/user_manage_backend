@@ -15,6 +15,13 @@
         "models": {
           "User": {
             "fields": {
+              "address": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
               "email": {
                 "nullable": false,
                 "type": {
@@ -42,11 +49,21 @@
                   "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
+              },
+              "phone": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
               }
             },
             "relations": {},
             "storage": {
               "fields": {
+                "address": {
+                  "column": "address"
+                },
                 "email": {
                   "column": "email"
                 },
@@ -58,6 +75,9 @@
                 },
                 "password": {
                   "column": "password"
+                },
+                "phone": {
+                  "column": "phone"
                 }
               },
               "namespaceId": "public",
@@ -75,6 +95,11 @@
           "table": {
             "user": {
               "columns": {
+                "address": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
                 "email": {
                   "codecId": "pg/text@1",
                   "nativeType": "text",
@@ -95,6 +120,11 @@
                   "nullable": false
                 },
                 "password": {
+                  "codecId": "pg/text@1",
+                  "nativeType": "text",
+                  "nullable": false
+                },
+                "phone": {
                   "codecId": "pg/text@1",
                   "nativeType": "text",
                   "nullable": false
@@ -121,7 +151,7 @@
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "63c6bfe8b4f347b72adf68d0a5d8914b461b6f76e52f5c121c870850d58e5eca"
+    "storageHash": "fc26a28c44145e2c5776e932540c36a142ab079a4608a33b4ec894fff3c4c2c1"
   },
   "capabilities": {
     "postgres": {

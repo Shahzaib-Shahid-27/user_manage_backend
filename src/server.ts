@@ -30,11 +30,11 @@ const startserver = async () => {
         await db.connect();
         
         app.listen(port, "0.0.0.0", async () => {
-            console.log(`Backend server is running on port ${port} \n DataBase Connected Successfully..`);
+            console.log(`\nackend server is running on port ${port} \n DataBase Connected Successfully..\n`);
         });
         
     } catch (error) {
-        console.error("Database connection failed:", error);        
+        console.error("\nDatabase connection failed!../\n", error);        
     }
 }
 
